@@ -1,0 +1,24 @@
+/* Global Attributes & Variables */
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+:root {
+    --gradientStart: #3f84fb;
+    --gradientMid: rgb(146, 159, 216);
+    --gradientEnd: #1b0a33;
+}
+
+header {
+    background: linear-gradient(90deg, var(--gradientStart), var(--gradientMid), var(--gradientEnd));
+    padding: 5px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+}
