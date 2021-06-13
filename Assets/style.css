@@ -83,7 +83,46 @@ h4 {
 
 #fiveDayContainer div {
     color: white;
-    background-color: rgb(48, 55, 65);
     width: calc(20% - 10px);
     padding: 5px;
+}
+
+/* UV Index Colors */
+.uvLow {
+    background-color: #3ea72d;
+}
+.uvMod {
+    background-color: #fff300;
+}
+.uvHigh {
+    background-color: #f18b00;
+}
+.uvVHigh {
+    background-color: #e53210;
+}
+.uvExt {
+    background-color: #b567a4;
+}
+
+/* Temperature Colors */
+.tempFreeze {
+    background-color: rgb(13, 25, 95);
+}
+.tempCold {
+    background-color: rgb(16, 80, 133);
+}
+.tempCool {
+    background-color: rgb(31, 137, 144);
+}
+.tempMid {
+    background-color: rgb(98, 153, 35);
+}
+.tempWarm {
+    background-color: rgb(143, 141, 13);
+}
+.tempHot {
+    background-color: rgb(192, 115, 27);
+}
+.tempExt {
+    background-color: rgb(165, 36, 19);
 }

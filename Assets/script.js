@@ -21,11 +21,15 @@ function displayNotFound() {
     `);
 }
 
+function temperatureRating(t) {
+    return (t < 32 ? "tempFreeze" : (t < 50 ? "tempCold" : (t < 65 ? "tempCool" : (t < 72 ? "tempMid" : (t < 80 ? "tempWarm" : (t < 105 ? "tempHot" : "tempExt"))))));
+}
+
 function displayForecast(forecastData) {
     var forecast = [];
     for(var i = 0; i < fiveDay; i++) {
         forecast.push(`
-            <div>
+            <div class="forecastBox ${temperatureRating(forecastData.daily[i].temp.day)}">
                 <h4>${moment(forecastData.daily[i].dt, "X").format("M/D/YYYY")}</h4>
                 <img src="http://openweathermap.org/img/wn/${forecastData.daily[i].weather[0].icon}@2x.png" alt="weather icon" class="icon"> 
                 <p>Temp: ${forecastData.daily[i].temp.day} <span>&#176;</span> F</p>
@@ -35,6 +39,10 @@ function displayForecast(forecastData) {
         `)
     }
     return forecast.join("");
+}
+
+function uvRating(uvi) {
+    return (uvi < 3 ? "uvLow" : (uvi < 6 ? "uvMod" : (uvi < 8 ? "uvHigh" : (uvi < 11 ? "uvVHigh" : "uvExt"))));
 }
 
 function displayContent(weatherData) {
@@ -47,7 +55,7 @@ function displayContent(weatherData) {
             <p>Temp: ${weatherData.current.temp} <span>&#176;</span> F</p>
             <p>Wind: ${weatherData.current.wind_speed} MPH</p>
             <p>Humidity: ${weatherData.current.humidity} %</p>
-            <p>UV Index: <span class="uvColor">${weatherData.current.uvi}</span></p>
+            <p>UV Index: <span class="uvColor ${uvRating(weatherData.current.uvi)}">${weatherData.current.uvi}</span></p>
         </div>
         <h3>5-Day Forecast:</h3>
         <div id="fiveDayContainer" class="d-flex justify-content-between">
