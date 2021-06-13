@@ -1,12 +1,14 @@
 /* Global Attributes & Variables */
 * {
     font-family: 'Noto Sans KR', sans-serif;
+    box-sizing: border-box;
 }
 
 :root {
     --gradientStart: #3f84fb;
     --gradientMid: rgb(146, 159, 216);
     --gradientEnd: #1b0a33;
+    --grey: rgb(168, 168, 168);
 }
 
 header {
@@ -15,10 +17,69 @@ header {
     padding-bottom: 10px;
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 h1 {
     color: white;
     font-size: 2rem;
     font-weight: 600;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.row {
+    margin-left: 0px;
+    width: 100%;
+}
+
+.searchBox {
+    padding: 5px;
+}
+
+#previousSearchContainer {
+    border-top: solid black 1px;
+}
+
+.btn {
+    background-color: var(--grey);
+    width: 100%;
+    margin: 15px 0px;
+}
+
+#searchBtn {
+    background-color: var(--gradientStart);
+    color: white;
+}
+
+#currentWeatherBox {
+    border: solid black 1px;
+    padding: 5px;
+}
+
+.uvColor {
+    background-color: violet;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+
+#fiveDayContainer div {
+    color: white;
+    background-color: rgb(48, 55, 65);
+    width: calc(20% - 10px);
+    padding: 5px;
 }

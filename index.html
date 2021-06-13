@@ -17,7 +17,62 @@
     <header>
         <h1>Weather Dashboard</h1>
     </header>
-    
+
+    <main class="row">
+        <section class="col-3 searchBox">
+            <h2>Search for a City:</h2>
+            <form>
+                <input type="search" placeholder="Ex: Seattle" class="form-control">
+                <button type="submit" class="btn" id="searchBtn">Search</button>
+            </form>
+            <div id="previousSearchContainer">
+                <button type="button" class="btn 0city">City One</button>
+            </div>
+        </section>
+        <section class="col-9">
+            <div id="currentWeatherBox">
+                <h2>Seattle (6/12/2021)</h2>
+                <p>Temp: 67.00 <span>&#176;</span> F</p>
+                <p>Wind: 6.67 MPH</p>
+                <p>Humidity: 46 %</p>
+                <p>UV Index: <span class="uvColor">0.47</span></p>
+            </div>
+            <h3>5-Day Forecast:</h3>
+            <div id="fiveDayContainer" class="d-flex justify-content-between">
+                <div>
+                    <h4>6/13/2021</h4>
+                    <p>Temp: 67.00 <span>&#176;</span> F</p>
+                    <p>Wind: 6.67 MPH</p>
+                    <p>Humidity: 46 %</p>    
+                </div>
+                <div>
+                    <h4>6/13/2021</h4>
+                    <p>Temp: 67.00 <span>&#176;</span> F</p>
+                    <p>Wind: 6.67 MPH</p>
+                    <p>Humidity: 46 %</p>    
+                </div>
+                <div>
+                    <h4>6/13/2021</h4>
+                    <p>Temp: 67.00 <span>&#176;</span> F</p>
+                    <p>Wind: 6.67 MPH</p>
+                    <p>Humidity: 46 %</p>    
+                </div>
+                <div>
+                    <h4>6/13/2021</h4>
+                    <p>Temp: 67.00 <span>&#176;</span> F</p>
+                    <p>Wind: 6.67 MPH</p>
+                    <p>Humidity: 46 %</p>    
+                </div>
+                <div>
+                    <h4>6/13/2021</h4>
+                    <p>Temp: 67.00 <span>&#176;</span> F</p>
+                    <p>Wind: 6.67 MPH</p>
+                    <p>Humidity: 46 %</p>    
+                </div>
+            </div>
+        </section>
+    </main>
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- Local JavaScript -->
