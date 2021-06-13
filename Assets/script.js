@@ -9,6 +9,7 @@ var weatherContainerEl = $("#weatherContainer");
 
 // Tracking
 var searchedCityVal;
+var fiveDay = 5;
 
 // -------------------------------------------------------------------------------
 // FUNCTIONS
@@ -18,6 +19,22 @@ function displayNotFound() {
     weatherContainerEl.append(`
         <h3>No Results Found. Please Try Again</h3>
     `);
+}
+
+function displayForecast(forecastData) {
+    var forecast = [];
+    for(var i = 0; i < fiveDay; i++) {
+        forecast.push(`
+            <div>
+                <h4>${moment(forecastData.daily[i].dt, "X").format("M/D/YYYY")}</h4>
+                <img src="http://openweathermap.org/img/wn/${forecastData.daily[i].weather[0].icon}@2x.png" alt="weather icon" class="icon"> 
+                <p>Temp: ${forecastData.daily[i].temp.day} <span>&#176;</span> F</p>
+                <p>Wind: ${forecastData.daily[i].wind_speed} MPH</p>
+                <p>Humidity: ${forecastData.daily[i].humidity} %</p>    
+            </div>
+        `)
+    }
+    return forecast.join("");
 }
 
 function displayContent(weatherData) {
@@ -34,12 +51,7 @@ function displayContent(weatherData) {
         </div>
         <h3>5-Day Forecast:</h3>
         <div id="fiveDayContainer" class="d-flex justify-content-between">
-            <div>
-                <h4>6/13/2021</h4>
-                <p>Temp: 67.00 <span>&#176;</span> F</p>
-                <p>Wind: 6.67 MPH</p>
-                <p>Humidity: 46 %</p>    
-            </div>
+            ${displayForecast(weatherData)}
         </div>
     `);
 }
