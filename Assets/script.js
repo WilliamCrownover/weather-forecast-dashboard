@@ -71,6 +71,14 @@ function saveSearches() {
     localStorage.setItem("previousSearches", JSON.stringify(previousSearches));
 }
 
+function resetSearchBox() {
+    searchFormEl.empty();
+    searchFormEl.append(`
+        <input type="search" placeholder="Ex: Seattle" class="form-control" id="searchInput">
+        <button type="submit" class="btn" id="searchBtn">Search</button>
+    `)
+}
+
 function clearHistoryDisplay() {
     previousSearchContainerEl.empty();
     previousSearchContainerEl.append(`
@@ -89,6 +97,7 @@ function displayPreviousSearch() {
         previousSearches.unshift(cityCaps);
     }
 
+    resetSearchBox();
     clearHistoryDisplay();
 
     for(var i = 0; i < previousSearches.length; i++) {
