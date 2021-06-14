@@ -25,20 +25,20 @@ header {
 /* h styling */
 h1 {
     color: white;
-    font-size: 2rem;
+    font-size: 2em;
     font-weight: 600;
 }
 h2 {
-    font-size: 1.8rem;
+    font-size: 1.8em;
     font-weight: 600;
 }
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.5em;
     font-weight: 600;
     margin-top: 10px;
 }
 h4 {
-    font-size: 1.2rem;
+    font-size: 1.2em;
     font-weight: 600;
 }
 
@@ -51,6 +51,12 @@ h4 {
 /* Containers */
 .searchBox {
     padding: 5px;
+    width: 25%;
+}
+#weatherContainer {
+    width: 75%;
+    padding: 10px;
+
 }
 #previousSearchContainer {
     border-top: solid black 1px;
@@ -58,6 +64,11 @@ h4 {
 #currentWeatherBox {
     border: solid black 1px;
     padding: 5px;
+    padding-left: 10px;
+}
+#fiveDayContainer {
+    display: flex;
+    justify-content: space-between;
 }
 #fiveDayContainer div {
     color: white;
@@ -70,6 +81,7 @@ h4 {
     background-color: var(--grey);
     width: 100%;
     margin: 5px 0;
+    font-size: initial;
 }
 .clearBtn {
     background-color: var(--clear);
@@ -128,4 +140,67 @@ h4 {
 }
 .tempExt {
     background-color: rgb(165, 36, 19);
+}
+
+/* --------------------------------------------------------------- */
+/* Media Queries */
+@media screen and (max-width: 1020px) {
+    h2, h3, h4 {
+        font-size: 1.2em;
+    }
+
+    h4 {
+        display: inline-block;
+    }
+
+    .btn, .form-control {
+        font-size: .7em;
+    }
+
+    #fiveDayContainer {
+        display: inline-block;
+        width: 100%;
+    }
+
+    #fiveDayContainer div {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        padding-left: 10px;
+    }
+
+    #fiveDayContainer div p {
+        display: inline-block;
+        width: 140px;
+    }
+
+    .icon {
+        width: 35px;
+    }
+
+    .forecastBox .icon {
+        margin-right: 65%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .searchBox {
+        width: 100%;
+    }
+
+    #weatherContainer {
+        width: 100%;
+    }
+
+    p {
+        margin-bottom: 3px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
 }

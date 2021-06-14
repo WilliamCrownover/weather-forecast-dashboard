@@ -61,7 +61,7 @@ function displayContent(weatherData) {
             <p>UV Index: <span class="uvColor ${uvRating(weatherData.current.uvi)}">${weatherData.current.uvi}</span></p>
         </div>
         <h3>5-Day Forecast:</h3>
-        <div id="fiveDayContainer" class="d-flex justify-content-between">
+        <div id="fiveDayContainer">
             ${displayForecast(weatherData)}
         </div>
     `);
