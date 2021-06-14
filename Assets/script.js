@@ -34,7 +34,7 @@ function displayForecast(forecastData) {
         forecast.push(`
             <div class="forecastBox ${temperatureRating(forecastData.daily[i].temp.day)}">
                 <h4>${moment(forecastData.daily[i].dt, "X").format("M/D/YYYY")}</h4>
-                <img src="http://openweathermap.org/img/wn/${forecastData.daily[i].weather[0].icon}@2x.png" alt="weather icon" class="icon"> 
+                <img src="https://openweathermap.org/img/wn/${forecastData.daily[i].weather[0].icon}@2x.png" alt="weather icon" class="icon"> 
                 <p>Temp: ${forecastData.daily[i].temp.day} <span>&#176;</span> F</p>
                 <p>Wind: ${forecastData.daily[i].wind_speed} MPH</p>
                 <p>Humidity: ${forecastData.daily[i].humidity} %</p>    
@@ -53,7 +53,7 @@ function displayContent(weatherData) {
     weatherContainerEl.append(`
         <div id="currentWeatherBox">
             <h2>${searchedCityVal} (${moment(weatherData.current.dt, "X").format("M/D/YYYY")})
-                <img src="http://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png" alt="weather icon" class="icon"> 
+                <img src="https://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png" alt="weather icon" class="icon"> 
             </h2>
             <p>Temp: ${weatherData.current.temp} <span>&#176;</span> F</p>
             <p>Wind: ${weatherData.current.wind_speed} MPH</p>
