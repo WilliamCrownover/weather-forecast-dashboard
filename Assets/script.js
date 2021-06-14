@@ -1,7 +1,7 @@
 // GLOBAL VARIABLES
 // API
 var APIKey = "42047833fa93ab4b60ef3a5ff26f282d";
-var APIURL = "http://api.openweathermap.org/data/2.5/";
+var APIURL = "https://api.openweathermap.org/data/2.5/";
 
 // Elements
 var searchFormEl = $("#searchForm");
