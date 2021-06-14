@@ -5,11 +5,14 @@ var APIURL = "http://api.openweathermap.org/data/2.5/";
 
 // Elements
 var searchFormEl = $("#searchForm");
+var previousSearchContainerEl = $("#previousSearchContainer");
 var weatherContainerEl = $("#weatherContainer");
 
 // Tracking
 var searchedCityVal;
+var searchSuccess = false;
 var fiveDay = 5;
+var previousSearches = JSON.parse(localStorage.getItem("previousSearches")) || [];
 
 // -------------------------------------------------------------------------------
 // FUNCTIONS
@@ -49,7 +52,7 @@ function displayContent(weatherData) {
     weatherContainerEl.empty();
     weatherContainerEl.append(`
         <div id="currentWeatherBox">
-            <h2>${searchedCityVal} (${moment().format("M/D/YYYY")})
+            <h2>${searchedCityVal} (${moment(weatherData.current.dt, "X").format("M/D/YYYY")})
                 <img src="http://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png" alt="weather icon" class="icon"> 
             </h2>
             <p>Temp: ${weatherData.current.temp} <span>&#176;</span> F</p>
@@ -64,6 +67,30 @@ function displayContent(weatherData) {
     `);
 }
 
+function displayPreviousSearch() {
+    if(searchSuccess) {
+        var cityCaps = searchedCityVal.toUpperCase();
+        for(var i = 0; i < previousSearches.length; i++) {
+            if(cityCaps === previousSearches[i]) {
+                previousSearches.splice(i, 1);
+            }
+        }
+        previousSearches.unshift(cityCaps);
+    }
+
+    previousSearchContainerEl.empty();
+    previousSearchContainerEl.append(`
+        <button type="button" class="btn clearBtn" value="clear">CLEAR HISTORY</button>
+    `)
+
+    for(var i = 0; i < previousSearches.length; i++) {
+        console.log("here");
+        previousSearchContainerEl.append(`
+            <button type="button" class="btn" value="${previousSearches[i]}">${previousSearches[i]}</button>
+        `);
+    }
+}
+
 function searchApiByCoordinates(lat, lon) {
     var locQueryUrl = `${APIURL}onecall?${lat}&${lon}&exclude=minutely,hourly&units=imperial&appid=${APIKey}`;
 
@@ -76,16 +103,18 @@ function searchApiByCoordinates(lat, lon) {
             return response.json();
         })
         .then(function (locRes) {
-            console.log("~ locRes", locRes);
+            // console.log("~ locRes", locRes);
             displayContent(locRes);
+            searchSuccess = true;
+            displayPreviousSearch();
         })
         .catch(function (error) {
             return error;
         });
 }
 
-function searchApiByCity(query) {
-    var locQueryUrl = `${APIURL}weather?q=${query}&appid=${APIKey}`;
+function searchApiByCity() {
+    var locQueryUrl = `${APIURL}weather?q=${searchedCityVal}&appid=${APIKey}`;
 
     fetch(locQueryUrl)
         .then(function (response) {
@@ -111,7 +140,9 @@ function handleSearchSubmit(event) {
 
     searchedCityVal = $("#searchInput").val();
 
-    searchApiByCity(searchedCityVal);
+    searchApiByCity();
 }
+
+displayPreviousSearch()
 
 searchFormEl.on("submit", handleSearchSubmit)

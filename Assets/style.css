@@ -9,8 +9,10 @@
     --gradientMid: rgb(146, 159, 216);
     --gradientEnd: #1b0a33;
     --grey: rgb(168, 168, 168);
+    --clear: #e7803b;
 }
 
+/* ---------- */
 header {
     background: linear-gradient(90deg, var(--gradientStart), var(--gradientMid), var(--gradientEnd));
     padding: 5px;
@@ -20,74 +22,75 @@ header {
     margin-bottom: 10px;
 }
 
+/* h styling */
 h1 {
     color: white;
     font-size: 2rem;
     font-weight: 600;
 }
-
 h2 {
     font-size: 1.8rem;
     font-weight: 600;
 }
-
 h3 {
     font-size: 1.5rem;
     font-weight: 600;
     margin-top: 10px;
 }
-
 h4 {
     font-size: 1.2rem;
     font-weight: 600;
 }
 
+/* ---------- */
 .row {
     margin-left: 0px;
     width: 100%;
 }
 
+/* Containers */
 .searchBox {
     padding: 5px;
 }
-
 #previousSearchContainer {
     border-top: solid black 1px;
 }
-
-.btn {
-    background-color: var(--grey);
-    width: 100%;
-    margin: 15px 0px;
-}
-
-#searchBtn {
-    background-color: var(--gradientStart);
-    color: white;
-}
-
 #currentWeatherBox {
     border: solid black 1px;
     padding: 5px;
 }
-
-.icon {
-    width: 50px;
-}
-
-.uvColor {
-    background-color: violet;
-    border-radius: 5px;
-    padding: 0 10px;
-}
-
 #fiveDayContainer div {
     color: white;
     width: calc(20% - 10px);
     padding: 5px;
 }
 
+/* Button Styling */
+.btn {
+    background-color: var(--grey);
+    width: 100%;
+    margin: 5px 0;
+}
+.clearBtn {
+    background-color: var(--clear);
+    margin-top: 15px;
+}
+#searchBtn {
+    background-color: var(--gradientStart);
+    color: white;
+    margin: 15px 0;
+}
+
+/* ---------- */
+.icon {
+    width: 50px;
+}
+
 /* UV Index Colors */
+.uvColor {
+    border-radius: 5px;
+    padding: 0 10px;
+}
 .uvLow {
     background-color: #3ea72d;
 }
