@@ -71,7 +71,7 @@ function saveSearches() {
     localStorage.setItem("previousSearches", JSON.stringify(previousSearches));
 }
 
-function clearHistory() {
+function clearHistoryDisplay() {
     previousSearchContainerEl.empty();
     previousSearchContainerEl.append(`
         <button type="button" class="btn clearBtn" value="clear">CLEAR HISTORY</button>
@@ -89,7 +89,7 @@ function displayPreviousSearch() {
         previousSearches.unshift(cityCaps);
     }
 
-    clearHistory();
+    clearHistoryDisplay();
 
     for(var i = 0; i < previousSearches.length; i++) {
         console.log("here");
@@ -153,6 +153,23 @@ function handleSearchSubmit(event) {
     searchApiByCity();
 }
 
+function handleButtonClick(event) {
+    event.preventDefault();
+
+    var btnValue = event.target.value;
+
+    if(btnValue === "clear") {
+        clearHistoryDisplay();
+        weatherContainerEl.empty();
+        previousSearches = [];
+        saveSearches();
+    } else {
+        searchedCityVal = btnValue;
+        searchApiByCity();
+    }
+}
+
 displayPreviousSearch()
 
 searchFormEl.on("submit", handleSearchSubmit)
+previousSearchContainerEl.on("click", handleButtonClick)
