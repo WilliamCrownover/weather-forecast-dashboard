@@ -67,6 +67,17 @@ function displayContent(weatherData) {
     `);
 }
 
+function saveSearches() {
+    localStorage.setItem("previousSearches", JSON.stringify(previousSearches));
+}
+
+function clearHistory() {
+    previousSearchContainerEl.empty();
+    previousSearchContainerEl.append(`
+        <button type="button" class="btn clearBtn" value="clear">CLEAR HISTORY</button>
+    `)
+}
+
 function displayPreviousSearch() {
     if(searchSuccess) {
         var cityCaps = searchedCityVal.toUpperCase();
@@ -78,10 +89,7 @@ function displayPreviousSearch() {
         previousSearches.unshift(cityCaps);
     }
 
-    previousSearchContainerEl.empty();
-    previousSearchContainerEl.append(`
-        <button type="button" class="btn clearBtn" value="clear">CLEAR HISTORY</button>
-    `)
+    clearHistory();
 
     for(var i = 0; i < previousSearches.length; i++) {
         console.log("here");
@@ -89,6 +97,8 @@ function displayPreviousSearch() {
             <button type="button" class="btn" value="${previousSearches[i]}">${previousSearches[i]}</button>
         `);
     }
+
+    saveSearches();
 }
 
 function searchApiByCoordinates(lat, lon) {
