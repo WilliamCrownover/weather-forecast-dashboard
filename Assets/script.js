@@ -12,6 +12,7 @@ var weatherContainerEl = $("#weatherContainer");
 var searchedCityVal;
 var searchSuccess = false;
 var fiveDay = 5;
+var forecastOffset = 0;
 var previousSearches = JSON.parse(localStorage.getItem("previousSearches")) || [];
 
 // -------------------------------------------------------------------------------
@@ -30,7 +31,10 @@ function temperatureRating(t) {
 
 function displayForecast(forecastData) {
     var forecast = [];
-    for(var i = 0; i < fiveDay; i++) {
+
+    forecastOffset = (moment(forecastData.current.dt, "X").format("D") === moment(forecastData.daily[0].dt, "X").format("D") ? 1 : 0);
+
+    for(var i = 0 + forecastOffset; i < fiveDay + forecastOffset; i++) {
         forecast.push(`
             <div class="forecastBox ${temperatureRating(forecastData.daily[i].temp.day)}">
                 <h4>${moment(forecastData.daily[i].dt, "X").format("M/D/YYYY")}</h4>
