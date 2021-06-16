@@ -26,7 +26,13 @@ function displayNotFound() {
 }
 
 function temperatureRating(t) {
-    return (t < 32 ? "tempFreeze" : (t < 50 ? "tempCold" : (t < 65 ? "tempCool" : (t < 72 ? "tempMid" : (t < 80 ? "tempWarm" : (t < 105 ? "tempHot" : "tempExt"))))));
+    return (t < 32 ? "tempFreeze" : 
+        (t < 50 ? "tempCold" : 
+        (t < 65 ? "tempCool" : 
+        (t < 72 ? "tempMid" : 
+        (t < 80 ? "tempWarm" : 
+        (t < 105 ? "tempHot" : 
+        "tempExt"))))));
 }
 
 function displayForecast(forecastData) {
@@ -49,7 +55,11 @@ function displayForecast(forecastData) {
 }
 
 function uvRating(uvi) {
-    return (uvi < 3 ? "uvLow" : (uvi < 6 ? "uvMod" : (uvi < 8 ? "uvHigh" : (uvi < 11 ? "uvVHigh" : "uvExt"))));
+    return (uvi < 3 ? "uvLow" : 
+        (uvi < 6 ? "uvMod" : 
+        (uvi < 8 ? "uvHigh" : 
+        (uvi < 11 ? "uvVHigh" : 
+        "uvExt"))));
 }
 
 function displayContent(weatherData) {
@@ -93,11 +103,13 @@ function clearHistoryDisplay() {
 function displayPreviousSearch() {
     if(searchSuccess) {
         var cityCaps = searchedCityVal.toUpperCase();
+
         for(var i = 0; i < previousSearches.length; i++) {
             if(cityCaps === previousSearches[i]) {
                 previousSearches.splice(i, 1);
             }
         }
+
         previousSearches.unshift(cityCaps);
     }
 
@@ -105,7 +117,6 @@ function displayPreviousSearch() {
     clearHistoryDisplay();
 
     for(var i = 0; i < previousSearches.length; i++) {
-        console.log("here");
         previousSearchContainerEl.append(`
             <button type="button" class="btn" value="${previousSearches[i]}">${previousSearches[i]}</button>
         `);
@@ -126,7 +137,6 @@ function searchApiByCoordinates(lat, lon) {
             return response.json();
         })
         .then(function (locRes) {
-            // console.log("~ locRes", locRes);
             displayContent(locRes);
             searchSuccess = true;
             displayPreviousSearch();
@@ -184,5 +194,7 @@ function handleButtonClick(event) {
 
 displayPreviousSearch()
 
+// -------------------------------------------------------------------------------
+// Event Listeners
 searchFormEl.on("submit", handleSearchSubmit)
 previousSearchContainerEl.on("click", handleButtonClick)
