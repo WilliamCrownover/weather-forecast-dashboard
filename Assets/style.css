@@ -1,206 +1,230 @@
 /* Global Attributes & Variables */
 * {
-    font-family: 'Noto Sans KR', sans-serif;
-    box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  box-sizing: border-box;
 }
 
 :root {
-    --gradientStart: #3f84fb;
-    --gradientMid: rgb(146, 159, 216);
-    --gradientEnd: #1b0a33;
-    --grey: rgb(168, 168, 168);
-    --clear: #e7803b;
+  --gradientStart: #3f84fb;
+  --gradientMid: rgb(146, 159, 216);
+  --gradientEnd: #1b0a33;
+  --grey: rgb(168, 168, 168);
+  --clear: #e7803b;
 }
 
 /* ---------- */
 header {
-    background: linear-gradient(90deg, var(--gradientStart), var(--gradientMid), var(--gradientEnd));
-    padding: 5px;
-    padding-bottom: 10px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
+  background: linear-gradient(90deg, var(--gradientStart), var(--gradientMid), var(--gradientEnd));
+  padding: 5px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 /* h styling */
 h1 {
-    color: white;
-    font-size: 2em;
-    font-weight: 600;
+  color: white;
+  font-size: 2em;
+  font-weight: 600;
 }
+
 h2 {
-    font-size: 1.8em;
-    font-weight: 600;
+  font-size: 1.8em;
+  font-weight: 600;
 }
+
 h3 {
-    font-size: 1.5em;
-    font-weight: 600;
-    margin-top: 10px;
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-top: 10px;
 }
+
 h4 {
-    font-size: 1.2em;
-    font-weight: 600;
+  font-size: 1.2em;
+  font-weight: 600;
 }
 
 /* ---------- */
 .row {
-    margin-left: 0px;
-    width: 100%;
+  margin-left: 0;
+  width: 100%;
 }
 
 /* Containers */
 .searchBox {
-    padding: 5px;
-    width: 25%;
+  padding: 5px;
+  width: 25%;
 }
-#weatherContainer {
-    width: 75%;
-    padding: 10px;
 
+#weatherContainer {
+  width: 75%;
+  padding: 10px;
 }
+
 #previousSearchContainer {
-    border-top: solid black 1px;
+  border-top: solid black 1px;
 }
+
 #currentWeatherBox {
-    border: solid black 1px;
-    padding: 5px;
-    padding-left: 10px;
+  border: solid black 1px;
+  padding: 5px;
+  padding-left: 10px;
 }
+
 #fiveDayContainer {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
+
 #fiveDayContainer div {
-    color: white;
-    width: calc(20% - 10px);
-    padding: 5px;
+  color: white;
+  width: calc(20% - 10px);
+  padding: 5px;
 }
 
 /* Button Styling */
 .btn {
-    background-color: var(--grey);
-    width: 100%;
-    margin: 5px 0;
-    font-size: initial;
+  background-color: var(--grey);
+  width: 100%;
+  margin: 5px 0;
+  font-size: initial;
 }
+
 .clearBtn {
-    background-color: var(--clear);
-    margin-top: 15px;
+  background-color: var(--clear);
+  margin-top: 15px;
 }
+
 #searchBtn {
-    background-color: var(--gradientStart);
-    color: white;
-    margin: 15px 0;
+  background-color: var(--gradientStart);
+  color: white;
+  margin: 15px 0;
 }
 
 /* ---------- */
 .icon {
-    width: 50px;
+  width: 50px;
 }
 
 /* UV Index Colors */
 .uvColor {
-    border-radius: 5px;
-    padding: 0 10px;
+  border-radius: 5px;
+  padding: 0 10px;
 }
+
 .uvLow {
-    background-color: #3ea72d;
+  background-color: #3ea72d;
 }
+
 .uvMod {
-    background-color: #fff300;
+  background-color: #fff300;
 }
+
 .uvHigh {
-    background-color: #f18b00;
+  background-color: #f18b00;
 }
+
 .uvVHigh {
-    background-color: #e53210;
+  background-color: #e53210;
 }
+
 .uvExt {
-    background-color: #b567a4;
+  background-color: #b567a4;
 }
 
 /* Temperature Colors */
 .tempFreeze {
-    background-color: rgb(13, 25, 95);
+  background-color: rgb(13, 25, 95);
 }
+
 .tempCold {
-    background-color: rgb(16, 80, 133);
+  background-color: rgb(16, 80, 133);
 }
+
 .tempCool {
-    background-color: rgb(31, 137, 144);
+  background-color: rgb(31, 137, 144);
 }
+
 .tempMid {
-    background-color: rgb(98, 153, 35);
+  background-color: rgb(98, 153, 35);
 }
+
 .tempWarm {
-    background-color: rgb(143, 141, 13);
+  background-color: rgb(143, 141, 13);
 }
+
 .tempHot {
-    background-color: rgb(192, 115, 27);
+  background-color: rgb(192, 115, 27);
 }
+
 .tempExt {
-    background-color: rgb(165, 36, 19);
+  background-color: rgb(165, 36, 19);
 }
 
 /* --------------------------------------------------------------- */
+
 /* Media Queries */
 @media screen and (max-width: 1020px) {
-    h2, h3, h4 {
-        font-size: 1.2em;
-    }
+  h2,
+  h3,
+  h4 {
+    font-size: 1.2em;
+  }
 
-    h4 {
-        display: inline-block;
-    }
+  h4 {
+    display: inline-block;
+  }
 
-    .btn, .form-control {
-        font-size: .7em;
-    }
+  .btn,
+  .form-control {
+    font-size: 0.7em;
+  }
 
-    #fiveDayContainer {
-        display: inline-block;
-        width: 100%;
-    }
+  #fiveDayContainer {
+    display: inline-block;
+    width: 100%;
+  }
 
-    #fiveDayContainer div {
-        display: block;
-        width: 100%;
-        margin-bottom: 10px;
-        padding-left: 10px;
-    }
+  #fiveDayContainer div {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding-left: 10px;
+  }
 
-    #fiveDayContainer div p {
-        display: inline-block;
-        width: 140px;
-    }
+  #fiveDayContainer div p {
+    display: inline-block;
+    width: 140px;
+  }
 
-    .icon {
-        width: 35px;
-    }
+  .icon {
+    width: 35px;
+  }
 
-    .forecastBox .icon {
-        margin-right: 65%;
-    }
+  .forecastBox .icon {
+    margin-right: 65%;
+  }
 }
 
 @media screen and (max-width: 700px) {
-    .row {
-        flex-direction: column;
-    }
+  .row {
+    flex-direction: column;
+  }
 
-    .searchBox {
-        width: 100%;
-    }
+  .searchBox {
+    width: 100%;
+  }
 
-    #weatherContainer {
-        width: 100%;
-    }
+  #weatherContainer {
+    width: 100%;
+  }
 
-    p {
-        margin-bottom: 3px;
-    }
+  p {
+    margin-bottom: 3px;
+  }
 
-    h1 {
-        font-size: 1.5em;
-    }
+  h1 {
+    font-size: 1.5em;
+  }
 }
